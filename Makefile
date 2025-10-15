@@ -12,3 +12,11 @@ all:
 	helm upgrade -i frontend . -f env-dev/frontend.yaml
 	sleep 10
 	helm ls
+
+uninstall:
+	helm uninstall cart
+	helm uninstall catalogue
+	helm uninstall user
+	helm uninstall shipping
+	helm uninstall payment
+	helm uninstall frontend
