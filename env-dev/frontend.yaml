@@ -10,3 +10,7 @@ configMapData:
   SHIPPING_PORT: "8080"
   PAYMENT_HOST: "payment"
   PAYMENT_PORT: "8080"
+
+service:
+  type: LoadBalancer
+  port: 80

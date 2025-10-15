@@ -1,10 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
-  labels:
-    project: roboshop
-    app: {{ .Values.appName }}
+  {{- template "app.metadata" . }}
 spec:
   replicas: 1
   selector:

@@ -2,10 +2,9 @@ apiVersion: v1
 kind: Service
   {{- template "app.metadata" . }}
 spec:
-  type: LoadBalancer
+  type: {{ .Values.service.type }}
   selector:
-    project: roboshop
-    app: frontend
+   {{- template "app.labels" . }}
   ports:
-    - port: 80
-      targetPort: 80
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
