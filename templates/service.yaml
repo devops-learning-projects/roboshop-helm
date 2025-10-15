@@ -4,7 +4,7 @@ kind: Service
 spec:
   type: {{ .Values.service.type }}
   selector:
-   {{- template "app.labels" . }}
+{{ include "app.labels" . | indent 4 }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.port }}
