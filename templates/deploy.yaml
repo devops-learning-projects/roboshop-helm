@@ -6,13 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      project: roboshop
-      app: {{ .Values.appName }}
+      {{- include "app.labels" . | nindent 6 }} # Use nindent instead of indent
   template:
     metadata:
       labels:
-        project: roboshop
-        app: {{ .Values.appName }}
+        {{- include "app.labels" . | nindent 8 }} # Use nindent instead of indent
     spec:
       containers:
         - name: {{ .Values.appName }}
