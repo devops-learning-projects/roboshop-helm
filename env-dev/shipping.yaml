@@ -10,3 +10,10 @@ configMapData:
 service:
   type: ClusterIP
   port: 8080
+
+schema:
+  enabled: true
+  jobs:
+    - schema.sql
+    - app-user.sql
+    - master-data.sql
