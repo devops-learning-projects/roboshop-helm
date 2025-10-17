@@ -12,5 +12,5 @@ service:
   type: ClusterIP
   port: 8080
 
-  schema:
-    enabled: true
+schema:
+  enabled: true
