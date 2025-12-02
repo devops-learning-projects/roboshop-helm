@@ -14,8 +14,8 @@ spec:
           - name: SCHEMA_FILE
             value: "db/{{ . }}"
         envFrom:
-          - configMapRef:
-              name: {{ $.Values.appName }}
+          - secretRef:
+              name: { { .Values.appName } }
       {{end }}
       restartPolicy: Never
 {{ end }}
