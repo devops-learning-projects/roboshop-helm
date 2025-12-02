@@ -15,7 +15,7 @@ spec:
             value: "db/{{ . }}"
         envFrom:
           - secretRef:
-              name: { { .Values.appName } }
+              name: {{ $.Values.appName }}
       {{end }}
       restartPolicy: Never
 {{ end }}
