@@ -16,6 +16,6 @@ spec:
         envFrom:
           - secretRef:
               name: {{ $.Values.appName }}
-      {{end }}
+      {{ end }}
       restartPolicy: Never
 {{ end }}
