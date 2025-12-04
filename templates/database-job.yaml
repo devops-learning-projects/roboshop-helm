@@ -1,21 +1,21 @@
-{{ if .Values.schema.enabled }}
+{{- if .Values.schema.enabled }}
+{{- range .Values.schema.jobs }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ .Values.appName }}-schema
+  name: {{ $.Values.appName }}-schema-{{ . | replace ".sql" "" | replace ".js" "" }}
 spec:
   template:
     spec:
       containers:
-      {{ range .Values.schema.jobs }}
-      - name: {{ . | replace ".sql" "" | replace ".js" "" }} # to remove .js or .sql
-        image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
-        env:
-          - name: SCHEMA_FILE
-            value: "db/{{ . }}"
-        envFrom:
-          - secretRef:
-              name: {{ $.Values.appName }}
-      {{ end }}
+        - name: schema-loader
+          image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+          env:
+            - name: SCHEMA_FILE
+              value: "db/{{ . }}"
+          envFrom:
+            - secretRef:
+                name: {{ $.Values.appName }}
       restartPolicy: Never
-{{ end }}
+{{- end }}
+{{- end }}
