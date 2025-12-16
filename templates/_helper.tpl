@@ -5,7 +5,7 @@ app: {{ .Values.appName }}
 
 {{- define "app.metadata" }}
 metadata:
-  name: {{ .Values.appName }}
+  name: roboshop-{{ .Values.appName }}
   labels:
     project: roboshop
     app: {{ .Values.appName }}
