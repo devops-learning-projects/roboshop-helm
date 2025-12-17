@@ -15,7 +15,7 @@ spec:
             path: "/"
             backend:
               service:
-                name: {{ .Values.appName }}
+                name: roboshop-{{ .Values.appName }}
                 port:
                   number: {{ .Values.service.port }}
 {{ end }}
