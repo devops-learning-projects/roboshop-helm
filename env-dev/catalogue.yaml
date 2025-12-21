@@ -15,3 +15,11 @@ schema:
   enabled: true
   jobs:
     - master-data.js
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 200Mi
+  limits:
+    cpu: 100m
+    memory: 400Mi

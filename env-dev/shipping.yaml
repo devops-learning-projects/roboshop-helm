@@ -17,3 +17,11 @@ schema:
     - schema.sql
     - app-user.sql
     - master-data.sql
+
+resources:
+  requests:
+    cpu: 1800m
+    memory: 3600Mi
+  limits:
+    cpu: 2500m
+    memory: 4500Mi

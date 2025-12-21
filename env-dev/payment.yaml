@@ -11,3 +11,11 @@ configMapData:
 service:
   type: ClusterIP
   port: 8080
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 200Mi
+  limits:
+    cpu: 500m
+    memory: 400Mi
