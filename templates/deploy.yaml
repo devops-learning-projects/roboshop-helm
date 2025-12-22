@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   {{- template "app.metadata" . }}
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       {{- include "app.labels" . | nindent 6 }} # Use nindent instead of indent
