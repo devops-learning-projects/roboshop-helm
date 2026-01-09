@@ -7,9 +7,9 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
-    - hosts:
-        - {{ .Values.ingress.host }}
-      secretName: {{ .Values.appName }}-tls
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.appName }}-tls
   ingressClassName: nginx
   rules:
     - host: {{ .Values.ingress.host }}
