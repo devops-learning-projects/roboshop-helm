@@ -6,10 +6,16 @@ metadata:
 spec:
   template:
     spec:
+      securityContext:
+        runAsUser: 1000
       containers:
       {{ range .Values.schema.jobs }}
       - name: {{ . | replace ".sql" "" | replace ".js" "" }} # to remove .js or .sql
-        image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+        image: 804756348441.dkr.ecr.us-east-1.amazonaws.com/{{ $.Values.appName }}-schema:latest
+        imagePullPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
         env:
           - name: SCHEMA_FILE
             value: "db/{{ . }}"
