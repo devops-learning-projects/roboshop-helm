@@ -12,7 +12,7 @@ configMapData:
   PAYMENT_PORT  : "8080"
 
 service:
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
@@ -25,3 +25,5 @@ resources:
   limits:
     cpu: 500m
     memory: 400Mi
+
+tmpDefault: /var/lib/nginx/tmp

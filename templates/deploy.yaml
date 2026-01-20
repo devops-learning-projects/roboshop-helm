@@ -12,11 +12,17 @@ spec:
       labels:
         {{- include "app.labels" . | nindent 8 }} # Use nindent instead of indent
     spec:
+      volumes:
+        - name: empty-dir
+          emptyDir: {}
       securityContext:
         runAsUser: 1000
       containers:
         - name: {{ .Values.appName }}
           image: 804756348441.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.imageTag }}
+          volumeMounts:
+            - name: tmp
+              mountPath: {{ .Values.tmpDefault }}
           envFrom:
             - secretRef:
                 name: {{ .Values.appName }}
